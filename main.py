@@ -35,8 +35,13 @@ def main():
                 return
             for shot in shots:
                 if shot.collides(asteroid):
+                    new_asteroids = asteroid.split()
                     asteroid.kill()
                     shot.kill()
+                    for new_asteroid in new_asteroids:
+                        asteroids.add(new_asteroid)
+                        drawable.add(new_asteroid)
+                        updatable.add(new_asteroid)
         screen.fill((0, 0, 0))
         for sprite in drawable:
             sprite.draw(screen)
